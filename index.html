@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kompraxpress - Tienda Online</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo Kompraxpress"/>
+      <h1>Kompraxpress</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="renderizarProductos()">Todos</a></li>
+        <li><a href="#" onclick="filtrarCategoria('Android')">Android</a></li>
+        <li><a href="#" onclick="filtrarCategoria('iPhone')">iPhone</a></li>
+        <li><a href="#" onclick="filtrarCategoria('Usados')">Usados</a></li>
+        <li><a href="#" onclick="filtrarCategoria('Auriculares')">Auriculares</a></li>
+        <li><a href="#" onclick="filtrarCategoria('Fundas')">Fundas</a></li>
+        <li><a href="#" onclick="filtrarCategoria('Cargadores')">Cargadores</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner con buscador -->
+  <section class="banner">
+    <h2>Bienvenido a Kompraxpress</h2>
+    <p>Encuentra los mejores productos tecnológicos con pagos seguros y atención personalizada.</p>
+    <input type="text" id="buscador" placeholder="Buscar producto..." />
+  </section>
+
+  <!-- Sección de productos -->
+  <main>
+    <section id="lista-productos" class="producto-lista-manual"></section>
+  </main>
+
+  <!-- Botón para abrir el carrito -->
+  <button id="abrir-carrito" class="btn">🛒 Ver carrito (<span id="contador-carrito">0</span>)</button>
+
+  <!-- Modal del carrito -->
+  <section id="modal-carrito" class="modal-carrito">
+    <div class="modal-contenido">
+      <button class="cerrar-carrito">✖</button>
+      <h2>Carrito de Compras</h2>
+      <ul id="lista-carrito"></ul>
+      <p>Total: <strong id="total-carrito">$0</strong></p>
+      <button id="finalizar-compra" class="btn">✅ Finalizar Compra</button>
+    </div>
+  </section>
+
+  <!-- Animación de compra exitosa -->
+  <div id="animacion-compra" class="animacion-compra" style="display:none;">
+    <div class="mensaje-compra">
+      🎉 ¡Compra Exitosa! Gracias por tu compra. 🎉
+    </div>
+  </div>
+
+  <!-- Botón y panel de administración -->
+  <button onclick="verPanelAdmin()" class="btn-admin">🔐 Panel Admin</button>
+
+  <section id="admin" style="display:none; padding: 1rem; background: #222; color: #fff; margin: 1rem;">
+    <h2>Panel de Administración</h2>
+    <input type="text" id="nombre" placeholder="Nombre del producto" />
+    <input type="number" id="precio" placeholder="Precio" />
+    <input type="text" id="imagen" placeholder="URL de imagen" />
+    <input type="text" id="categoria" placeholder="Categoría" />
+    <button onclick="guardarProducto()" class="btn">💾 Guardar producto</button>
+  </section>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
